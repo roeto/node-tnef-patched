@@ -105,9 +105,9 @@ export function parse(filePath, callback) {
 
     DecodeFile(filePath).then((result) => {
         // if there is an attachment, extract it and save to file
-        if (result && result.Attachments && result.Attachments.length > 0) {
+        if (result) {
             log.info('Done decoding ' + filePath + '!!')
-            callback(false, result.Attachments)
+            callback(false, result)
         } else {
             log.warn('Something went wrong with parsing ' + filePath + '. Make sure this is a TNEF file. If you are certain it is, possibly the file is corrupt')
             callback(true, null)
